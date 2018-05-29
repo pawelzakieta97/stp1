@@ -1,0 +1,11 @@
+Tp = 0.25;
+bc = [0,1,9,14];        %wspó³czynniki licznika transmitancji ci¹g³ej
+ac = [1,11,-62,-720];   %wspó³czynniki mianownika transmitancji ci¹g³ej
+ciagla = tf(bc,ac);
+dyskretna = c2d(ciagla,Tp);
+[b,a] = tfdata(dyskretna,'v');
+[A1,B1,C1,D1] = tf2ss(b,a);
+A2 = A1';
+B2 = C1';
+C2 = B1';
+D2 = D1;

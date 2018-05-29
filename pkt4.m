@@ -1,0 +1,18 @@
+initial_values;
+name1 = 'metoda1_bezposrednia';
+name2 = 'metoda2_bezposrednia';
+nameTF = 'TransferFunction';
+options = simset('SrcWorkspace','current');    
+sim(name1, [], options);
+sim(name2, [], options);
+sim(nameTF, [], options);
+stairs(pierwsza.time,pierwsza.data,'b');
+hold on;
+stairs(druga.time,druga.data,'r');
+stairs(TF.time,TF.data,'g');
+title('Odpowiedzi skokowe');
+xlabel('t');
+ylabel('y');
+legend('metoda 1','metoda 2','funkcja transmitancji dyskretnej');
+print ('-dpng','-r600','4-odp_skok');
+hold off;
